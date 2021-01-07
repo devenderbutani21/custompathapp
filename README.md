@@ -2,6 +2,8 @@
 
 A new Flutter application.
 
+Inspiration from https://dribbble.com/shots/6393964-Despicable-Me-Character-Ui
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
