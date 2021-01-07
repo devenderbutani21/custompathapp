@@ -12,7 +12,7 @@ class HeroCard extends StatelessWidget {
             Navigator.push(
               context,
               PageRouteBuilder(
-                pageBuilder: (context, a, b) => DetailPage(),
+                pageBuilder: (context, a, b) => DetailPage('assets/images/iron_man.png', 'Iron Man'),
               ),
             );
           },

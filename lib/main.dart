@@ -15,6 +15,12 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        primaryColor: Colors.white,
+        canvasColor: Colors.white,
+        appBarTheme: AppBarTheme(
+          elevation: 0,
+          color: Colors.white,
+        ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: DashboardPage(),
