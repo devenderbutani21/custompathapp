@@ -1,8 +1,18 @@
 import 'package:flutter/material.dart';
 
 import '../detail_page.dart';
+import '../models/pokemon.dart';
 
-class HeroCard extends StatelessWidget {
+class HeroCard extends StatefulWidget {
+  var _indexNo;
+
+  HeroCard(this._indexNo);
+
+  @override
+  _HeroCardState createState() => _HeroCardState();
+}
+
+class _HeroCardState extends State<HeroCard> {
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -12,7 +22,7 @@ class HeroCard extends StatelessWidget {
             Navigator.push(
               context,
               PageRouteBuilder(
-                pageBuilder: (context, a, b) => DetailPage('assets/images/iron_man.png', 'Iron Man'),
+                pageBuilder: (context, a, b) => DetailPage(widget._indexNo),
               ),
             );
           },
@@ -27,10 +37,7 @@ class HeroCard extends StatelessWidget {
                   width: MediaQuery.of(context).size.width * 0.8,
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
-                      colors: [
-                        Colors.orange,
-                        Colors.deepOrangeAccent,
-                      ],
+                      colors: pokemon[widget._indexNo].colors,
                       begin: Alignment.bottomLeft,
                       end: Alignment.topRight,
                     ),
@@ -47,7 +54,7 @@ class HeroCard extends StatelessWidget {
               top: MediaQuery.of(context).size.width * 0.8 * 0.1,
             ),
             child: Image.asset(
-              'assets/images/iron_man.png',
+              pokemon[widget._indexNo].imagePath,
               scale: 1.5,
             ),
           ),
@@ -59,7 +66,7 @@ class HeroCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
-                'Iron Man',
+                pokemon[widget._indexNo].name,
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,

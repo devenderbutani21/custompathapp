@@ -19,12 +19,18 @@ List pokemon = [
     name: "Charizard",
     imagePath: "assets/images/iron_man.png",
     description: "Hello World",
-    colors: [Colors.orange.shade200, Colors.deepOrange.shade400],
+    colors: [
+      Colors.orange,
+      Colors.deepOrangeAccent,
+    ],
   ),
   Pokemon(
     name: "Pinky",
     imagePath: "assets/images/iron_man.png",
     description: "pinnu",
-    colors: [Colors.pink.shade200, Colors.redAccent.shade400],
+    colors: [
+      Colors.pink.shade200,
+      Colors.redAccent.shade400,
+    ],
   ),
 ];

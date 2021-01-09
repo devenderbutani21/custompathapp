@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import './models/pokemon.dart';
 
 class DetailPage extends StatefulWidget {
-  var _image;
-  var _title;
+  var _indexNo;
 
-  DetailPage(this._image, this._title);
+  DetailPage(this._indexNo);
 
   @override
   _DetailPageState createState() => _DetailPageState();
@@ -15,9 +15,6 @@ class _DetailPageState extends State<DetailPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        // appBar: AppBar(
-        //   title: Text(widget._title),
-        // ),
         body: Hero(
           tag: 'background',
           child: Container(
@@ -26,10 +23,7 @@ class _DetailPageState extends State<DetailPage> {
             padding: EdgeInsets.all(32),
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                colors: [
-                  Colors.orange,
-                  Colors.deepOrangeAccent,
-                ],
+                colors: pokemon[widget._indexNo].colors,
                 begin: Alignment.bottomLeft,
                 end: Alignment.topRight,
               ),
@@ -49,17 +43,21 @@ class _DetailPageState extends State<DetailPage> {
                 ),
                 Center(
                   child: Image.asset(
-                    widget._image,
+                    pokemon[widget._indexNo].imagePath,
                     scale: 1.25,
                   ),
                 ),
-                Text(
-                  widget._title,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 32,
-                    letterSpacing: 2,
+                Container(
+                  height: 60,
+                  width: 240,
+                  child: Text(
+                    pokemon[widget._indexNo].name,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 32,
+                      letterSpacing: 2,
+                    ),
                   ),
                 ),
               ],
