@@ -15,74 +15,24 @@ class _DashboardPageState extends State<DashboardPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Dashboard'),
+        title: Text(
+          'Top Pokemon of 2020',
+          style: TextStyle(
+            fontSize: 28,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
-      body: PageView(
+      body: PageView.builder(
         controller: pageController,
         onPageChanged: (index) {
           setState(() {
             pageChanged = index;
           });
-          print(index);
         },
-        children: [
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.all(32.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Marvel Hero App',
-                    style: TextStyle(
-                      fontSize: 32,
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 3,
-                    ),
-                  ),
-                  Text(
-                    'Characters',
-                    style: TextStyle(
-                      fontSize: 24,
-                      letterSpacing: 3,
-                    ),
-                  ),
-                  Expanded(
-                    child: HeroCard(pageChanged),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.all(32.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Marvel Hero App',
-                    style: TextStyle(
-                      fontSize: 32,
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 3,
-                    ),
-                  ),
-                  Text(
-                    'Characters',
-                    style: TextStyle(
-                      fontSize: 24,
-                      letterSpacing: 3,
-                    ),
-                  ),
-                  Expanded(
-                    child: HeroCard(pageChanged),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ],
+        itemBuilder: (context, index) {
+          return HeroCard(index%10);
+        },
       ),
     );
   }

@@ -13,14 +13,19 @@ class DetailPage extends StatefulWidget {
 class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Hero(
-          tag: 'background',
+    return Scaffold(
+      body: Hero(
+        tag: 'background-${pokemon[widget._indexNo].name}',
+        child: SingleChildScrollView(
           child: Container(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
-            padding: EdgeInsets.all(32),
+            padding: EdgeInsets.only(
+              top: 32,
+              left: 32,
+              right: 32,
+              bottom: 8,
+            ),
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: pokemon[widget._indexNo].colors,
@@ -44,11 +49,14 @@ class _DetailPageState extends State<DetailPage> {
                 Center(
                   child: Image.asset(
                     pokemon[widget._indexNo].imagePath,
-                    scale: 1.25,
+                    scale: pokemon[widget._indexNo].scale,
                   ),
                 ),
+                SizedBox(
+                  height: 15,
+                ),
                 Container(
-                  height: 60,
+                  height: 42,
                   width: 240,
                   child: Text(
                     pokemon[widget._indexNo].name,
@@ -57,6 +65,31 @@ class _DetailPageState extends State<DetailPage> {
                       fontWeight: FontWeight.bold,
                       fontSize: 32,
                       letterSpacing: 2,
+                    ),
+                  ),
+                ),
+                Container(
+                  height: 36,
+                  width: 240,
+                  child: Text(
+                    pokemon[widget._indexNo].votes,
+                    style: TextStyle(
+                      color: Colors.white70,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 24,
+                    ),
+                  ),
+                ),
+                Container(
+                  height: 120,
+                  width: 380,
+                  child: Text(
+                    pokemon[widget._indexNo].description,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                      // letterSpacing: 2,
                     ),
                   ),
                 ),

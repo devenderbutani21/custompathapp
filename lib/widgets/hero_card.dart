@@ -15,78 +15,83 @@ class HeroCard extends StatefulWidget {
 class _HeroCardState extends State<HeroCard> {
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        InkWell(
-          onTap: () {
-            Navigator.push(
-              context,
-              PageRouteBuilder(
-                pageBuilder: (context, a, b) => DetailPage(widget._indexNo),
-              ),
-            );
-          },
-          child: Align(
-            alignment: Alignment.bottomCenter,
-            child: ClipPath(
-              clipper: BackgroundClipper(),
-              child: Hero(
-                tag: 'background',
-                child: Container(
-                  height: MediaQuery.of(context).size.height * 0.6,
-                  width: MediaQuery.of(context).size.width * 0.8,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: pokemon[widget._indexNo].colors,
-                      begin: Alignment.bottomLeft,
-                      end: Alignment.topRight,
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(32.0),
+        child: Stack(
+          children: [
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  PageRouteBuilder(
+                    pageBuilder: (context, a, b) => DetailPage(widget._indexNo),
+                  ),
+                );
+              },
+              child: Align(
+                alignment: Alignment.bottomCenter,
+                child: ClipPath(
+                  clipper: BackgroundClipper(),
+                  child: Hero(
+                    tag: 'background-${pokemon[widget._indexNo].name}',
+                    child: Container(
+                      height: MediaQuery.of(context).size.height * 0.6,
+                      width: MediaQuery.of(context).size.width * 0.8,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: pokemon[widget._indexNo].colors,
+                          begin: Alignment.bottomLeft,
+                          end: Alignment.topRight,
+                        ),
+                      ),
                     ),
                   ),
                 ),
               ),
             ),
-          ),
-        ),
-        Align(
-          alignment: Alignment.center,
-          child: Padding(
-            padding: EdgeInsets.only(
-              top: MediaQuery.of(context).size.width * 0.8 * 0.1,
-            ),
-            child: Image.asset(
-              pokemon[widget._indexNo].imagePath,
-              scale: 1.5,
-            ),
-          ),
-        ),
-        Positioned(
-          bottom: 20,
-          left: 40,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text(
-                pokemon[widget._indexNo].name,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 32,
-                  letterSpacing: 2,
+            Align(
+              alignment: Alignment.center,
+              child: Padding(
+                padding: EdgeInsets.only(
+                  bottom: MediaQuery.of(context).size.width * 0.18,
+                ),
+                child: Image.asset(
+                  pokemon[widget._indexNo].imagePath,
+                  scale: pokemon[widget._indexNo].scale,
                 ),
               ),
-              Text(
-                'Click for more details',
-                style: TextStyle(
-                  color: Colors.white70,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18,
-                  letterSpacing: 2,
-                ),
+            ),
+            Positioned(
+              bottom: 20,
+              left: 40,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    pokemon[widget._indexNo].name,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 32,
+                      letterSpacing: 2,
+                    ),
+                  ),
+                  Text(
+                    'Click for more details',
+                    style: TextStyle(
+                      color: Colors.white70,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                      letterSpacing: 2,
+                    ),
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
-      ],
+      ),
     );
   }
 }
