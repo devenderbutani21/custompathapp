@@ -3,6 +3,8 @@
 A new Flutter application.
 
 Inspiration from https://dribbble.com/shots/6393964-Despicable-Me-Character-Ui
+Images of Gengar, Greninja and Sylveon by https://toppng.com/john3
+Images of Charizard, Garchomp, Gardevoir, Lucario, Mimikyu, Rayquaza and Umbreon on https://www.pngfind.com/
 
 ## Getting Started
 
