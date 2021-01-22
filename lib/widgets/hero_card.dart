@@ -37,14 +37,17 @@ class _HeroCardState extends State<HeroCard> {
                     clipper: BackgroundClipper(),
                     child: Hero(
                       tag: 'background-${pokemon[widget._indexNo].name}',
-                      child: Container(
-                        height: MediaQuery.of(context).size.height * 0.6,
-                        width: MediaQuery.of(context).size.width * 0.8,
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: pokemon[widget._indexNo].colors,
-                            begin: Alignment.bottomLeft,
-                            end: Alignment.topRight,
+                      child: Material(
+                        type: MaterialType.transparency,
+                        child: Container(
+                          height: MediaQuery.of(context).size.height * 0.6,
+                          width: MediaQuery.of(context).size.width * 0.8,
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: pokemon[widget._indexNo].colors,
+                              begin: Alignment.bottomLeft,
+                              end: Alignment.topRight,
+                            ),
                           ),
                         ),
                       ),
