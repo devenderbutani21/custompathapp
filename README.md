@@ -1,4 +1,4 @@
-# custompathapp
+# Custome design UI App
 
 Preview of the app
 
