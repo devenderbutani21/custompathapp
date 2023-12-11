@@ -1,4 +1,4 @@
-# Custome design UI App
+# Custom design UI App
 
 Preview of the app
 
